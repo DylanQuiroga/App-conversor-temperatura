@@ -72,4 +72,22 @@
         app:layout_constraintStart_toEndOf="@+id/spinner"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.108" />
+
+    <Button
+        android:id="@+id/ayuda"
+        android:layout_width="41dp"
+        android:layout_height="36dp"
+        android:background="@drawable/circular_button"
+        android:onClick="openInfoWindow"
+        android:text="?"
+        android:textColorHighlight="#AC6868"
+        android:textColorHint="#FB1212"
+        android:textColorLink="#ECBABA"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.972"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.012" />
 </androidx.constraintlayout.widget.ConstraintLayout>

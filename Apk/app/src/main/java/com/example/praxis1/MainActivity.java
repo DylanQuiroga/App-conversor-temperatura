@@ -2,14 +2,13 @@ package com.example.praxis1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
@@ -25,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         Button boton = findViewById(R.id.boton);
+        Button ayuda = findViewById(R.id.ayuda);
         Spinner spinner = findViewById(R.id.spinner);
         EditText valor = findViewById(R.id.valor);
         EditText resultado = findViewById(R.id.resultado);
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
                         resultado.setText(gc + " °C \n" + k + " K \n" + gre + " °Re\n" + gra + " °Ra");
 
-                    } else if (spinner.getSelectedItem() == "K10") {
+                    } else if (spinner.getSelectedItem() == "K") {
                         gc = Double.parseDouble(df.format(valorIn - 273.15));
                         gf = Double.parseDouble(df.format((5 * valorIn + 2298.35) / 9));
                         gre = Double.parseDouble(df.format((valorIn - 273.15) * 0.80));
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                         k = Double.parseDouble(df.format((valorIn / 0.80) + 273.15));
                         gra = Double.parseDouble(df.format((valorIn * 2.250) + 492.67));
 
-                        resultado.setText(gc + " °C \n" + gf + " F \n" + k + " °K\n" + gra + " °Ra");
+                        resultado.setText(gc + " °C \n" + gf + " F \n" + k + " K\n" + gra + " °Ra");
 
                     } else if (spinner.getSelectedItem() == "°Ra") {
                         gc = Double.parseDouble(df.format((valorIn - 491.67) * 1.8));
@@ -80,12 +80,26 @@ public class MainActivity extends AppCompatActivity {
                         k = Double.parseDouble(df.format(valorIn * 1.8));
                         gre = Double.parseDouble(df.format((valorIn - 491.67)*0.44));
 
-                        resultado.setText(gc + " °C \n" + gf + " F \n" + k + " °K\n" + gre + " °Re");
+                        resultado.setText(gc + " °C \n" + gf + " F \n" + k + " K\n" + gre + " °Re");
                     }
                 }catch (Exception e){
                     System.out.println("error");
                 }
             }
         });
+
+        ayuda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openInfoWindow(view);
+            }
+        });
+
     }
+
+    public void openInfoWindow(View view) {
+        Intent intent = new Intent(this, Help.class);
+        startActivity(intent);
+    }
+
 }
