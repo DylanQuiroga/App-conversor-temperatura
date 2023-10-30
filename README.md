@@ -1,4 +1,4 @@
-# Praxis I
+# App conversor de temperatura
 
 En esta primera practica para la asignatura de diseño y analisis de algoritmo (DAA) se introdujo el uso de Android Studio para desarrollar una aplicacion movil en el lenguaje JAVA. 
 
